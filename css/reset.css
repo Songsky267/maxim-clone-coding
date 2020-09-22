@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* 리셋 CSS */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, p, table, th, tr, td, button, form {margin: 0; padding: 0; box-sizing: border-box;}
+header, nav, section, article, aside, footer {display: block;}
+html, body {height: 100%; line-height: 100%; font: inherit;}
+ul, ol, li {list-style: none;}
+h1, h2, h3, h4, h5, h6, p {font-size: inherit; font-weight: normal; font-style: normal;}
+a {text-decoration: none; color: inherit;}
