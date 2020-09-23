@@ -36,50 +36,55 @@ $(function(){
                 $logo_white.addClass("visible"); // 로고화이트에 visible이라는 클래스명을 추가
             }
         });
-        $(function(){
+        $(function() {
             $(".ft_family").click(function(){
-                $(".ft_btn").slideToggle();
-
+              $(".ft_btn").slideToggle();
             });
-
         });
 
-        //메인슬라이더 
-        var $slide_wrap = $(".slider");
-        var $slide_container = $(".slide_container");
-        var $slide_list = $(".slider");
-        var $slide_count = $(".slide_container");
-        var $slide_prve = $(".slider");
-        var $slide_next = $(".slide_container");
-        var $current_idx = 0;
+    //메인 슬라이더
 
-        //슬라이드 나열 
-        $slide_list.each(function(){
-            $(this).css("left",i * + "%");
-            i +=0;
-        });
-        //슬라이드 이동 함수  
-        function moveSlide(idx){
-            $slide_container.css("left",-100 * idx + "%");
-        }      
-        //버튼 눌렀을때 할일
-        $btn_next.on("click", function(){
-            if($current_idx == $slide_count -1){
-                moveSlide(0);
-            }else{moveSlide($current_idx +1);
-        
-
-        }
-    }); 
-    $btn_prev.on("click", function(){
-        if($current_idx == 0){
-            moveSlide($slide_count -1);
-        }else{
+    var $slide_wrap = $(".slider");//전체영역
+    var $slide_container = $(".slide_container");//이미지 리스트를 감싸고 있는 여역
+    var $slide_list = $(".slide_list");//이미지 리스트
+    var $slide_count = $slide_list.length//슬라이드 이미지 리스트개수
+    var $btn_prev = $("#prev");// 슬라이드의 이전버튼
+    var $btn_next = $("#next");//슬라이드의 이후버튼
+    var $current_idx = 0;//현재 슬라이드의 위치(순서)
     
-
+    //슬라이더 나열
+    $slide_list.each(function(i){
+        $(this).css("left",i * 100 + "%");
+        i +=0;
+    });
+    //슬라이드 이동 함수
+    function moveSlide(idx){
+        $slide_container.css("left",-100 * idx + "%");
+        $current_idx = idx;
     }
-}); 
+
+    //버튼 눌렀을때 할일 
+    $btn_next.on("click", function(){
+
+        if($current_idx == $slide_count -1){//마지막일때
+            moveSlide(0);
+        }else{//마지막이 아니면 
+            moveSlide($current_idx +1);
+        }
+
+    });
+    $btn_prev.on("click", function(){
+     
+        if($current_idx ==0){//처음일때는
+            moveSlide($slide_count -1);
             
+        }else{//마지막이 아니면 
+            
+        }
+
+
+    });
+          
 
        
 
